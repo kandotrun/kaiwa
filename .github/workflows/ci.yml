@@ -26,6 +26,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Build shared
+        run: pnpm -F @kaiwa/shared build
+
       - name: Type check
         run: |
           pnpm -F @kaiwa/shared exec tsc --noEmit
@@ -38,6 +41,3 @@ jobs:
 
       - name: Test
         run: pnpm test
-
-      - name: Build shared
-        run: pnpm -F @kaiwa/shared build
