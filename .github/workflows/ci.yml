@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [22]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Type check
+        run: |
+          pnpm -F @kaiwa/shared exec tsc --noEmit
+          pnpm -F @kaiwa/relay exec tsc --noEmit
+          pnpm -F @kaiwa/node-agent exec tsc --noEmit
+          pnpm -F @kaiwa/sdk exec tsc --noEmit
+
+      - name: Lint
+        run: pnpm check
+
+      - name: Test
+        run: pnpm test
+
+      - name: Build shared
+        run: pnpm -F @kaiwa/shared build
