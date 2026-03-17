@@ -1,0 +1,20 @@
+{
+  "name": "kaiwa",
+  "private": true,
+  "scripts": {
+    "dev:relay": "pnpm -F @kaiwa/relay dev",
+    "dev:node": "pnpm -F @kaiwa/node-agent dev",
+    "build": "pnpm -r build",
+    "check": "biome check .",
+    "format": "biome format --write .",
+    "test": "pnpm -r test"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.0",
+    "typescript": "^5.7.0"
+  },
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": ">=22"
+  }
+}

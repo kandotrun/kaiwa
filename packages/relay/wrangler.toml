@@ -1,0 +1,12 @@
+name = "kaiwa-relay"
+main = "src/index.ts"
+compatibility_date = "2026-03-17"
+
+[durable_objects]
+bindings = [
+  { name = "SIGNALING", class_name = "SignalingRoom" }
+]
+
+[[migrations]]
+tag = "v1"
+new_classes = ["SignalingRoom"]

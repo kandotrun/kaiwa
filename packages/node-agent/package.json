@@ -1,0 +1,22 @@
+{
+  "name": "@kaiwa/node-agent",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": { "kaiwa-node": "dist/index.js" },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "ws": "^8.18.0",
+    "@kaiwa/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "workspace:*",
+    "tsx": "^4.19.0",
+    "@types/ws": "^8.5.0"
+  }
+}
