@@ -1,4 +1,4 @@
-import { describe, expect, it, vi, beforeEach, afterEach } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { KaiwaClient } from "./client.js";
 
 describe("KaiwaClient", () => {
@@ -85,9 +85,7 @@ describe("KaiwaClient", () => {
 				autoReconnect: false,
 			});
 
-			await expect(
-				client.fetch("https://example.com"),
-			).rejects.toThrow();
+			await expect(client.fetch("https://example.com")).rejects.toThrow();
 
 			client.close();
 			globalThis.WebSocket = origWS;

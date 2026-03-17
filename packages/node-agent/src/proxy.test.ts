@@ -1,6 +1,6 @@
+import type { ProxyRequest } from "@kaiwa/shared";
 import { describe, expect, it } from "vitest";
 import { ProxyServer } from "./proxy.js";
-import type { ProxyRequest } from "@kaiwa/shared";
 
 describe("ProxyServer", () => {
 	const proxy = new ProxyServer();

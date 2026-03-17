@@ -3,10 +3,10 @@ import https from "node:https";
 import {
 	type ProxyRequest,
 	type ProxyResponse,
+	TIMEOUTS,
 	isPrivateIp,
 	sanitizeHeaders,
 	validateProxyUrl,
-	TIMEOUTS,
 } from "@kaiwa/shared";
 
 /**

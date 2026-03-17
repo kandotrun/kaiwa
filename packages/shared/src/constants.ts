@@ -24,11 +24,7 @@ export const SENSITIVE_REQUEST_HEADERS = [
 ] as const;
 
 /** Headers that must be stripped from responses */
-export const SENSITIVE_RESPONSE_HEADERS = [
-	"set-cookie",
-	"x-powered-by",
-	"server",
-] as const;
+export const SENSITIVE_RESPONSE_HEADERS = ["set-cookie", "x-powered-by", "server"] as const;
 
 /** Security headers to add to HTTP responses */
 export const SECURITY_HEADERS: Record<string, string> = {

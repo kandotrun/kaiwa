@@ -1,11 +1,11 @@
 import {
+	LIMITS,
 	type ProxyRequest,
 	type ProxyResponse,
-	createMessage,
-	parseMessage,
-	hmacSign,
 	TIMEOUTS,
-	LIMITS,
+	createMessage,
+	hmacSign,
+	parseMessage,
 } from "@kaiwa/shared";
 
 export interface KaiwaClientOptions {
@@ -219,9 +219,7 @@ export class KaiwaClient {
 						if (pending) {
 							this.pending.delete(payload.requestId);
 							if (msg.type === "proxy_error") {
-								pending.reject(
-									new Error(payload.message ?? "Proxy error"),
-								);
+								pending.reject(new Error(payload.message ?? "Proxy error"));
 							} else {
 								pending.resolve(payload);
 							}

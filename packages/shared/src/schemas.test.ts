@@ -24,9 +24,7 @@ import {
 describe("schemas", () => {
 	describe("RequestIdSchema", () => {
 		it("accepts valid UUIDs", () => {
-			expect(
-				RequestIdSchema.safeParse("550e8400-e29b-41d4-a716-446655440000").success,
-			).toBe(true);
+			expect(RequestIdSchema.safeParse("550e8400-e29b-41d4-a716-446655440000").success).toBe(true);
 		});
 
 		it("rejects non-UUID strings", () => {
@@ -109,9 +107,7 @@ describe("schemas", () => {
 		});
 
 		it("rejects missing fields", () => {
-			expect(
-				AuthTokenSchema.safeParse({ apiKey: "kw_test" }).success,
-			).toBe(false);
+			expect(AuthTokenSchema.safeParse({ apiKey: "kw_test" }).success).toBe(false);
 		});
 	});
 

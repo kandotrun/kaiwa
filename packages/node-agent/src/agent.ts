@@ -1,10 +1,10 @@
 import {
-	type WsMessage,
 	type ProxyRequest,
-	createMessage,
-	parseMessage,
-	hmacSign,
 	TIMEOUTS,
+	type WsMessage,
+	createMessage,
+	hmacSign,
+	parseMessage,
 } from "@kaiwa/shared";
 import WebSocket from "ws";
 import { ProxyServer } from "./proxy.js";

@@ -1,11 +1,11 @@
 import {
-	type WsMessage,
+	InboundWsMessageSchema,
+	LIMITS,
 	type ProxyNode,
+	TIMEOUTS,
+	type WsMessage,
 	createMessage,
 	parseMessage,
-	InboundWsMessageSchema,
-	TIMEOUTS,
-	LIMITS,
 } from "@kaiwa/shared";
 import { verifyClientAuth, verifyNodeAuth } from "./auth.js";
 
@@ -262,9 +262,7 @@ export class SignalingRoom {
 		};
 
 		this.nodes.set(payload.nodeId, node);
-		session.ws.send(
-			JSON.stringify(createMessage("auth_ok", { nodeId: payload.nodeId })),
-		);
+		session.ws.send(JSON.stringify(createMessage("auth_ok", { nodeId: payload.nodeId })));
 	}
 
 	// ─── Message handlers ──────────────────────────
@@ -292,12 +290,7 @@ export class SignalingRoom {
 		// Find an available node (round-robin)
 		const nodeSession = this.selectNode();
 		if (!nodeSession) {
-			this.sendError(
-				clientWs,
-				"NODE_NOT_FOUND",
-				"No online nodes available",
-				payload.requestId,
-			);
+			this.sendError(clientWs, "NODE_NOT_FOUND", "No online nodes available", payload.requestId);
 			return;
 		}
 
@@ -388,11 +381,7 @@ export class SignalingRoom {
 
 	private sendError(ws: WebSocket, code: string, message: string, requestId?: string) {
 		try {
-			ws.send(
-				JSON.stringify(
-					createMessage("error", { code, message, requestId }),
-				),
-			);
+			ws.send(JSON.stringify(createMessage("error", { code, message, requestId })));
 		} catch {
 			// WebSocket may be closed
 		}

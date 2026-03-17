@@ -1,7 +1,7 @@
 import { Hono } from "hono";
 import { cors } from "hono/cors";
-import { SignalingRoom } from "./signaling.js";
 import { authMiddleware, securityHeadersMiddleware } from "./auth.js";
+import { SignalingRoom } from "./signaling.js";
 
 export { SignalingRoom };
 
@@ -19,13 +19,9 @@ app.use("*", cors());
 
 // ─── Public endpoints ──────────────────────────────
 
-app.get("/", (c) =>
-	c.json({ name: "kaiwa-relay", version: "0.0.1", status: "ok" }),
-);
+app.get("/", (c) => c.json({ name: "kaiwa-relay", version: "0.0.1", status: "ok" }));
 
-app.get("/api/health", (c) =>
-	c.json({ ok: true, timestamp: Date.now() }),
-);
+app.get("/api/health", (c) => c.json({ ok: true, timestamp: Date.now() }));
 
 // ─── Authenticated endpoints ───────────────────────
 

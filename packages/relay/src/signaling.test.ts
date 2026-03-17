@@ -1,5 +1,5 @@
-import { describe, expect, it, vi, beforeEach } from "vitest";
 import { createMessage, hmacSign } from "@kaiwa/shared";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { SignalingRoom } from "./signaling.js";
 
 // Mock WebSocket
@@ -136,9 +136,7 @@ describe("SignalingRoom", () => {
 			const timestamp = Date.now();
 			const signature = await hmacSign("test-api-secret", `${apiKey}:${timestamp}`);
 
-			const msg = JSON.stringify(
-				createMessage("auth", { apiKey, timestamp, signature }),
-			);
+			const msg = JSON.stringify(createMessage("auth", { apiKey, timestamp, signature }));
 			await room.webSocketMessage(ws, msg);
 
 			expect(ws.send).toHaveBeenCalled();

@@ -38,7 +38,15 @@ export const ProxyNodeSchema = z.object({
 export type ProxyNode = z.infer<typeof ProxyNodeSchema>;
 
 // ─── Proxy Request/Response ────────────────────────
-export const HttpMethodSchema = z.enum(["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"]);
+export const HttpMethodSchema = z.enum([
+	"GET",
+	"POST",
+	"PUT",
+	"PATCH",
+	"DELETE",
+	"HEAD",
+	"OPTIONS",
+]);
 
 export const ProxyRequestSchema = z.object({
 	requestId: RequestIdSchema,

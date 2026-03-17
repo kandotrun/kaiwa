@@ -1,5 +1,5 @@
-import { describe, expect, it } from "vitest";
 import { hmacSign } from "@kaiwa/shared";
+import { describe, expect, it } from "vitest";
 import { verifyClientAuth, verifyNodeAuth } from "./auth.js";
 
 describe("relay auth", () => {

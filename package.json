@@ -1,21 +1,21 @@
 {
-  "name": "kaiwa",
-  "private": true,
-  "scripts": {
-    "dev:relay": "pnpm -F @kaiwa/relay dev",
-    "dev:node": "pnpm -F @kaiwa/node-agent dev",
-    "build": "pnpm -r build",
-    "check": "biome check .",
-    "format": "biome format --write .",
-    "test": "vitest run"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "^1.9.0",
-    "typescript": "^5.7.0",
-    "vitest": "^3.0.0"
-  },
-  "packageManager": "pnpm@9.15.0",
-  "engines": {
-    "node": ">=22"
-  }
+	"name": "kaiwa",
+	"private": true,
+	"scripts": {
+		"dev:relay": "pnpm -F @kaiwa/relay dev",
+		"dev:node": "pnpm -F @kaiwa/node-agent dev",
+		"build": "pnpm -r build",
+		"check": "biome check .",
+		"format": "biome format --write .",
+		"test": "vitest run"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.0",
+		"typescript": "^5.7.0",
+		"vitest": "^3.0.0"
+	},
+	"packageManager": "pnpm@9.15.0",
+	"engines": {
+		"node": ">=22"
+	}
 }

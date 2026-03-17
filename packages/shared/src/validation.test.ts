@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { hmacSign, hmacVerify, isPrivateIp, sanitizeHeaders, validateProxyUrl } from "./validation.js";
+import {
+	hmacSign,
+	hmacVerify,
+	isPrivateIp,
+	sanitizeHeaders,
+	validateProxyUrl,
+} from "./validation.js";
 
 describe("isPrivateIp", () => {
 	it("blocks 10.x.x.x", () => {
