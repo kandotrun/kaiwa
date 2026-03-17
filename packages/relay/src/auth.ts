@@ -48,7 +48,7 @@ export async function verifyNodeAuth(
  * Expects header: Authorization: Bearer <apiKey>:<timestamp>:<signature>
  */
 export function authMiddleware() {
-	return async (c: Context<{ Bindings: AuthEnv }>, next: Next) => {
+	return async (c: Context<{ Bindings: AuthEnv; Variables: { apiKey: string } }>, next: Next) => {
 		const authHeader = c.req.header("Authorization");
 		if (!authHeader?.startsWith("Bearer ")) {
 			return c.json({ error: "Authorization required" }, 401);
