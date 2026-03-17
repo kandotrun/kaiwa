@@ -12,12 +12,10 @@
   },
   "scripts": {
     "build": "tsc",
-    "dev": "tsc --watch"
+    "dev": "tsc --watch",
+    "test": "vitest run"
   },
   "dependencies": {
     "@kaiwa/shared": "workspace:*"
-  },
-  "devDependencies": {
-    "typescript": "workspace:*"
   }
 }

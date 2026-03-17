@@ -1,2 +1,2 @@
 export { KaiwaClient } from "./client.js";
-export type { KaiwaClientOptions } from "./client.js";
+export type { KaiwaClientOptions, KaiwaClientState } from "./client.js";

@@ -7,11 +7,12 @@
     "build": "pnpm -r build",
     "check": "biome check .",
     "format": "biome format --write .",
-    "test": "pnpm -r test"
+    "test": "vitest run"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.0",
-    "typescript": "^5.7.0"
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
   },
   "packageManager": "pnpm@9.15.0",
   "engines": {

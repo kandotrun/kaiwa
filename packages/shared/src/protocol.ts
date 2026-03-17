@@ -11,7 +11,8 @@ export type MessageType =
 	| "signal_offer"
 	| "signal_answer"
 	| "signal_ice"
-	| "node_list";
+	| "node_list"
+	| "error";
 
 export interface WsMessage<T = unknown> {
 	type: MessageType;
@@ -24,5 +25,9 @@ export function createMessage<T>(type: MessageType, payload: T): WsMessage<T> {
 }
 
 export function parseMessage(data: string): WsMessage {
-	return JSON.parse(data) as WsMessage;
+	const parsed = JSON.parse(data);
+	if (!parsed || typeof parsed !== "object" || !parsed.type) {
+		throw new Error("Invalid WebSocket message format");
+	}
+	return parsed as WsMessage;
 }
