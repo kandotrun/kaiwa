@@ -63,4 +63,4 @@ kaiwa.close();
 
 ## License
 
-MIT
+Proprietary — All rights reserved.
